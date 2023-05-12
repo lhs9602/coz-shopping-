@@ -1,12 +1,13 @@
-import { createBrowserRouter, RouterProvider, createRoutesFromElements } from 'react-router5';
-import Header from '@/Components/Header'
-import Footer from '@/Components/Footer'
-import { fetchData } from '@/Api/callApi';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router5';
+import Header from '@/Components/Header';
+import Footer from '@/Components/Footer';
+import { fetchData } from '@/Api/callApi';
 import Main from '@/Pages/main';
 import ProductList from '@/Pages/product';
-import Bookmark from './pages/Bookmark';
+import Bookmark from '@/pages/Bookmark';
+import Loading from '@/Components/Loading';
 
 // 경로와 컴포넌트 매핑
 const routes = [
@@ -26,18 +27,29 @@ const Router = () => {
 
 // App 컴포넌트
 function App() {
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchData());
+    const fetchDataAndSetLoading = async () => {
+      await dispatch(fetchData());
+      setLoading(false);
+    };
+
+    fetchDataAndSetLoading();
   }, []);
+
   return (
     <>
-    <Header/>
-    <RouterProvider router={router}>
-      <Router />
-    </RouterProvider>
-    <Footer/>
+      <Header />
+      {loading ? (
+        <Loading />
+      ) : (
+        <RouterProvider router={router}>
+          <Router />
+        </RouterProvider>
+      )}
+      <Footer />
     </>
   );
 }

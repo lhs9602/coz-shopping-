@@ -3,7 +3,7 @@ import Logo from "../Common/logo/Logo.js"
 import Menu from "../Common/menu/Menu.js";
 
 const HeaderBar = styled.div`
-   width: 1280px;
+   width: 100%;
 height: 80px;
 
 background: #FFFFFF;

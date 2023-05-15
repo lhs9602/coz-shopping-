@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Bookmarkimg from "./북마크 아이콘 - off.png";
+import Modal from "Components/Modal/Modal.js";
 
 const ProductWrapper = styled.div`
   height: 264px;
@@ -20,6 +21,8 @@ const ImageWrapper = styled.div`
 const Image = styled.img`
   height: 100%;
   width: 100%;
+  background-color:gray;
+
 `;
 
 const BookmarkIcon = styled.img`
@@ -40,18 +43,24 @@ const Name = styled.div`
   font-weight: bold;
 `;
 
-const Price = styled.div`
+const Intro = styled.div`
   color: #000;
-  font-weight: bold;
   margin-top: 4px;
 `;
 
 export default function Product({ items}){
+  const [isOpen, setIsOpen] = useState(false);
+
   const handleClick = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
   };
 
   return (
-    <ProductWrapper>
+    <ProductWrapper onClick={handleClick}>
       <ImageWrapper>
         <Image src={items.image_url} alt={items.title} />
         <BookmarkIcon src={Bookmarkimg} alt="Bookmark" onClick={handleClick} />
@@ -59,7 +68,14 @@ export default function Product({ items}){
       <TextWrapper>
         <Name>{items.title}</Name>
       </TextWrapper>
-      <Price>{items.sub_title}원</Price>
+      <Intro>{items.sub_title}원</Intro>
+      {isOpen && (
+        <Modal
+        image={items.image_url}
+        name={items.title}
+          onClose={handleClose}
+        />
+      )}
     </ProductWrapper>
   );
 };

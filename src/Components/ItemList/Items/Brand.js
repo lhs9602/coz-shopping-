@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Bookmarkimg from "./북마크 아이콘 - off.png";
+import Modal from "Components/Modal/Modal.js";
 
 const ProductWrapper = styled.div`
   height: 264px;
@@ -20,6 +21,7 @@ const ImageWrapper = styled.div`
 const Image = styled.img`
   height: 100%;
   width: 100%;
+  background-color: gray;
 `;
 
 const BookmarkIcon = styled.img`
@@ -40,34 +42,49 @@ const Name = styled.div`
   font-weight: bold;
 `;
 
-const Discount = styled.div`
+const Customer = styled.div`
   color: #452cdd;
   font-weight: bold;
   align-self: flex-end;
 `;
 
-const Price = styled.div`
+const Follow = styled.div`
   color: #000;
   font-weight: bold;
   margin-top: 4px;
+  align-self: flex-end;
 `;
 
-export default function Product({ items}){
+export default function Product({ items }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   const handleClick = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
   };
 
   return (
-    <ProductWrapper>
+    <ProductWrapper onClick={handleClick}>
       <ImageWrapper>
         <Image src={items.brand_image_url} alt={items.title} />
-        <BookmarkIcon src={Bookmarkimg} alt="Bookmark" onClick={handleClick} />
+        <BookmarkIcon src={Bookmarkimg} alt="Bookmark" />
       </ImageWrapper>
       <TextWrapper>
         <Name>{items.brand_name}</Name>
-        <Discount>관심고객 수</Discount>
+        <Customer>관심고객 수</Customer>
       </TextWrapper>
-      <Price>{items.follower}</Price>
+      <Follow>{items.follower}</Follow>
+
+      {isOpen && (
+        <Modal
+          image={items.brand_image_url}
+          name={items.brand_name}
+          onClose={handleClose}
+        />
+      )}
     </ProductWrapper>
   );
-};
-
+}

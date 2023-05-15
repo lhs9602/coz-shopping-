@@ -1,5 +1,5 @@
-import React, { useEffect, useCallback, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './Components/Header/Header.js';
 import Footer from './Components/Footer/Footer.js';
@@ -11,29 +11,25 @@ import Loading from './Components/Loading/Loading.js';
 
 function App() {
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(true);
-
-  const fetchDataAndSetLoading = useCallback(async () => {
-    await dispatch(fetchData());
-    setIsLoading(false);
-  }, [dispatch]);
+  const isLoading = useSelector((state) => state.loading);
+  const data = useSelector((state) => state.data);
 
   useEffect(() => {
-    fetchDataAndSetLoading();
-  }, [fetchDataAndSetLoading]);
+    dispatch(fetchData());
+  }, [dispatch]);
 
   return (
     <BrowserRouter>
       <Header />
       {isLoading ? (
         <Loading />
-      ) : (
+      ) : data.length > 0 ? (
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/products/list" element={<ProductList />} />
           <Route path="/bookmark" element={<Bookmark />} />
         </Routes>
-      )}
+      ) : null}
       <Footer />
     </BrowserRouter>
   );

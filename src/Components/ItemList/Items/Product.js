@@ -51,7 +51,7 @@ const Price = styled.div`
   margin-top: 4px;
 `;
 
-const Product = ({ image, name, price, discount, bookmark }) => {
+export default function Product({ image, name, price, discount, bookmark ,type}){
   const handleClick = () => {
   };
 
@@ -63,11 +63,10 @@ const Product = ({ image, name, price, discount, bookmark }) => {
       </ImageWrapper>
       <TextWrapper>
         <Name>{name}</Name>
-        <Discount>{discount}</Discount>
+        <Discount>{discount}%</Discount>
       </TextWrapper>
-      <Price>{price}</Price>
+      <Price>{price}원</Price>
     </ProductWrapper>
   );
 };
 
-export default Product;

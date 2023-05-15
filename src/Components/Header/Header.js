@@ -40,7 +40,7 @@ export default function Header(){
 
     return (
         <HeaderBar>
-            <Logo/>
+            <Logo />
             <Titles>COZ Shopping</Titles>
             <Menu/>
 

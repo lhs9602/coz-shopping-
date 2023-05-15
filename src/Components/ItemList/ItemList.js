@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Items from "./Items/Items";
+import ItemFilter from "./ItemFilter";
 
 const ProductsContainer = styled.div`
   position: relative; /* 부모 요소를 relative로 설정합니다. */
@@ -31,18 +31,12 @@ const productsData = [
     }
   ];
 export default function ItemList(){
+
+
+
 return (
     <ProductsContainer>
-      {productsData.map((product) => (
-        <Items
-          key={product.id}
-          image={product.image}
-          name={product.name}
-          price={product.price}
-          discount={product.discount}
-          bookmark={product.bookmark}
-        />
-      ))}
+      {productsData.map((product) => ItemFilter(product))}
     </ProductsContainer>
   );
       }

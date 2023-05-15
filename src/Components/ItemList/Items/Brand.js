@@ -21,7 +21,7 @@ const ImageWrapper = styled.div`
 const Image = styled.img`
   height: 100%;
   width: 100%;
-  background-color:gray;
+  background-color: gray;
 `;
 
 const BookmarkIcon = styled.img`
@@ -40,25 +40,22 @@ const TextWrapper = styled.div`
 const Name = styled.div`
   color: #000;
   font-weight: bold;
-  font-size: 15px;
-
 `;
 
-const Discount = styled.div`
+const Customer = styled.div`
   color: #452cdd;
   font-weight: bold;
   align-self: flex-end;
 `;
 
-const Price = styled.div`
+const Follow = styled.div`
   color: #000;
   font-weight: bold;
   margin-top: 4px;
   align-self: flex-end;
-
 `;
 
-export default function Product({ items}){
+export default function Product({ items }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
@@ -68,25 +65,26 @@ export default function Product({ items}){
   const handleClose = () => {
     setIsOpen(false);
   };
+
   return (
     <ProductWrapper onClick={handleClick}>
       <ImageWrapper>
-        <Image src={items.image_url} alt={items.title} />
-        <BookmarkIcon src={Bookmarkimg} alt="Bookmark" onClick={handleClick} />
+        <Image src={items.brand_image_url} alt={items.title} />
+        <BookmarkIcon src={Bookmarkimg} alt="Bookmark" />
       </ImageWrapper>
       <TextWrapper>
-        <Name>{items.title}</Name>
-        <Discount>{items.discountPercentage}%</Discount>
+        <Name>{items.brand_name}</Name>
+        <Customer>관심고객 수</Customer>
       </TextWrapper>
-      <Price>{items.price}원</Price>
+      <Follow>{items.follower}</Follow>
+
       {isOpen && (
         <Modal
-          image={items.image_url}
-          name={items.title}
+          image={items.brand_image_url}
+          name={items.brand_name}
           onClose={handleClose}
         />
       )}
     </ProductWrapper>
   );
-};
-
+}

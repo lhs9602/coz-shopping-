@@ -1,33 +1,32 @@
 import Product from "Components/ItemList/Items/Product";
+import Brand from "Components/ItemList/Items/Brand";
+import Category from "Components/ItemList/Items/Category";
+import Exhibition from "Components/ItemList/Items/Exhibition";
 
-export default  function ItemFilter(product){
-    if (product.type === "Product") {
+export default  function ItemFilter(items){
+    if (items.type === "Product") {
       return (
         <Product
-          key={product.id}
-          image={product.image}
-          name={product.name}
-          price={product.price}
-          discount={product.discount}
-          bookmark={product.bookmark}
+        items={items}
+
         />
       );
-    } else if (product.type === "Category") {
+    } else if (items.type === "Category") {
       return (
         <Category
-          key={product.id}
+        items={items}
         />
       );
-    } else if (product.type === "Brand") {
+    } else if (items.type === "Brand") {
       return (
         <Brand
-          key={product.id}
+        items={items}
         />
       );
-    } else if (product.type === "Exhibition") {
+    } else if (items.type === "Exhibition") {
       return (
         <Exhibition
-          key={product.id}
+        items={items}
         />
       );
     } else {

@@ -22,6 +22,7 @@ const Image = styled.img`
   height: 100%;
   width: 100%;
   background-color:gray;
+
 `;
 
 const BookmarkIcon = styled.img`
@@ -40,22 +41,11 @@ const TextWrapper = styled.div`
 const Name = styled.div`
   color: #000;
   font-weight: bold;
-  font-size: 15px;
-
 `;
 
-const Discount = styled.div`
-  color: #452cdd;
-  font-weight: bold;
-  align-self: flex-end;
-`;
-
-const Price = styled.div`
+const Intro = styled.div`
   color: #000;
-  font-weight: bold;
   margin-top: 4px;
-  align-self: flex-end;
-
 `;
 
 export default function Product({ items}){
@@ -68,6 +58,7 @@ export default function Product({ items}){
   const handleClose = () => {
     setIsOpen(false);
   };
+
   return (
     <ProductWrapper onClick={handleClick}>
       <ImageWrapper>
@@ -76,13 +67,12 @@ export default function Product({ items}){
       </ImageWrapper>
       <TextWrapper>
         <Name>{items.title}</Name>
-        <Discount>{items.discountPercentage}%</Discount>
       </TextWrapper>
-      <Price>{items.price}원</Price>
+      <Intro>{items.sub_title}원</Intro>
       {isOpen && (
         <Modal
-          image={items.image_url}
-          name={items.title}
+        image={items.image_url}
+        name={items.title}
           onClose={handleClose}
         />
       )}

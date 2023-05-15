@@ -36,7 +36,7 @@ export default function ItemList(){
 
 return (
     <ProductsContainer>
-      {productsData.map((product) => ItemFilter(product))}
+      {productsData.map((items) => ItemFilter(items))}
     </ProductsContainer>
   );
       }

@@ -11,10 +11,10 @@ const productSlice = createSlice({
   },
   reducers: {
     bookMarkIn: (state) => {
-      state.bookmark = true;
+      state.data.bookmark = true;
     },
     bookMarkOut: (state) => {
-      state.bookmark = false;
+      state.data.bookmark = false;
     }
   },
   extraReducers: builder => {

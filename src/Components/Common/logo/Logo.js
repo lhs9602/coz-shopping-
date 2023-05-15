@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import logo from "./logo.png"
+import useRedirect from 'Hooks/useRedirect/useRedirect.js';
 
 
 const LogoImg=styled.div`
@@ -17,8 +18,12 @@ bottom: 31.25%;
 `;   
 
 export default function Logo(){
+    const redirect = useRedirect();
+    const handleLogoClick = (url) => {
+        redirect(url);
+      };
     return (
-        <LogoImg>
+        <LogoImg onClick={() => handleLogoClick('/')}>
         </LogoImg>
     );
 }

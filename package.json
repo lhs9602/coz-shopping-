@@ -18,8 +18,8 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.11.1",
     "react-scripts": "5.0.1",
+    "redux-thunk": "^2.4.2",
     "sort-by": "^1.2.0",
-    "storybook": "^7.0.11",
     "styled-components": "^6.0.0-rc.1",
     "web-vitals": "^2.1.4"
   },
@@ -27,9 +27,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "eject": "react-scripts eject"
+  
   },
   "eslintConfig": {
     "extends": [
@@ -60,16 +59,8 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^7.0.11",
-    "@storybook/addon-interactions": "^7.0.11",
-    "@storybook/addon-links": "^7.0.11",
-    "@storybook/blocks": "^7.0.11",
-    "@storybook/preset-create-react-app": "^7.0.11",
-    "@storybook/react-webpack5": "^7.0.11",
-    "@storybook/testing-library": "^0.0.14-next.2",
+
     "babel-plugin-named-exports-order": "^0.0.2",
-    "prop-types": "^15.8.1",
-    "webpack": "^5.82.1",
-    "webpack-cli": "^5.1.1"
+    "prop-types": "^15.8.1"
   }
 }

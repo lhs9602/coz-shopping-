@@ -1,6 +1,11 @@
 import styled from "styled-components";
+import Product from "Components/ItemList/Items/Product";
+import Brand from "Components/ItemList/Items/Brand";
+import Category from "Components/ItemList/Items/Category";
+import Exhibition from "Components/ItemList/Items/Exhibition";
+import useRandomItems from 'Hooks/useRandomItems/useRandomItems';
 
-const MainContainer=styled.div`
+const MainContainer = styled.div `
 display: flex;
 flex-direction: column;
 align-items: flex-start;
@@ -11,7 +16,7 @@ width: 1300px;
 height: 790px;
 `;
 
-const ProductText = styled.div`
+const ProductText = styled.div `
 width: 179px;
 height: 38px;
 
@@ -25,8 +30,7 @@ align-items: center;
 color: #000000;
 `
 
-
-const ProductWrapper = styled.div`
+const ProductWrapper = styled.div `
     width: 100%;
     height: 35%;
     margin: 36px 0px;
@@ -36,17 +40,23 @@ flex-direction: row;
     padding: 0px;
 `;
 
+export default  function Main() {
 
-export default function Main(){
-
-
+    const { products, categories, brands, exhibitions } =  useRandomItems();
     return (
-    <MainContainer>
-<ProductText>상품 리스트</ProductText>
-<ProductWrapper></ProductWrapper>
-<ProductText>북마크 리스트</ProductText>
-<ProductWrapper></ProductWrapper>
+        <MainContainer>
+            <ProductText>상품 리스트</ProductText>
+            <ProductWrapper>
+                <Product items={products}/>
+                <Brand items={categories}/>
+                <Category items={brands}/>
+                <Exhibition items={exhibitions}/>
+            </ProductWrapper>
+            <ProductText>북마크 리스트</ProductText>
+            <ProductWrapper>
 
-    </MainContainer>
+            </ProductWrapper>
+
+        </MainContainer>
     );
 }

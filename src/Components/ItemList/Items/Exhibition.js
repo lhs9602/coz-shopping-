@@ -40,18 +40,10 @@ const Name = styled.div`
   font-weight: bold;
 `;
 
-const Discount = styled.div`
-  color: #452cdd;
-  font-weight: bold;
-  align-self: flex-end;
-`;
-
 const Price = styled.div`
   color: #000;
   font-weight: bold;
   margin-top: 4px;
-  align-self: flex-end;
-
 `;
 
 export default function Product({ items}){
@@ -66,9 +58,8 @@ export default function Product({ items}){
       </ImageWrapper>
       <TextWrapper>
         <Name>{items.title}</Name>
-        <Discount>{items.discountPercentage}%</Discount>
       </TextWrapper>
-      <Price>{items.price}원</Price>
+      <Price>{items.sub_title}원</Price>
     </ProductWrapper>
   );
 };

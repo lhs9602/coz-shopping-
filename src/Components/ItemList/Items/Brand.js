@@ -50,8 +50,6 @@ const Price = styled.div`
   color: #000;
   font-weight: bold;
   margin-top: 4px;
-  align-self: flex-end;
-
 `;
 
 export default function Product({ items}){
@@ -61,14 +59,14 @@ export default function Product({ items}){
   return (
     <ProductWrapper>
       <ImageWrapper>
-        <Image src={items.image_url} alt={items.title} />
+        <Image src={items.brand_image_url} alt={items.title} />
         <BookmarkIcon src={Bookmarkimg} alt="Bookmark" onClick={handleClick} />
       </ImageWrapper>
       <TextWrapper>
-        <Name>{items.title}</Name>
-        <Discount>{items.discountPercentage}%</Discount>
+        <Name>{items.brand_name}</Name>
+        <Discount>관심고객 수</Discount>
       </TextWrapper>
-      <Price>{items.price}원</Price>
+      <Price>{items.follower}</Price>
     </ProductWrapper>
   );
 };

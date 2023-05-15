@@ -1,15 +1,14 @@
-import {  createAsyncThunk} from '@reduxjs/toolkit';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
+import { updateBookmarksInLocalStorage } from 'Redux/localStorage/localStorage.js';
 
 export const fetchDataFromAPI = createAsyncThunk(
   'product/fetchData',
   async () => {
-    
     const response = await axios.get('http://cozshopping.codestates-seb.link/api/v1/products');
-    console.log('성공1');
     const data = response.data;
-    const modifiedData = data.map(item => ({ ...item, bookmark: false }));
+    const modifiedData = data.map(item => ({ ...item, bookmark: true }));
+    updateBookmarksInLocalStorage(modifiedData); // Local Storage 업데이트
     return modifiedData;
   }
 );

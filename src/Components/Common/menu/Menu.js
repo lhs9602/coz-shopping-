@@ -40,7 +40,7 @@ export default function Menu(){
   }
 
     return (
-        <MenuIcon onMouseEnter={handleMenuHover} onMouseLeave={handleMenuHoverLeave}>
+        <MenuIcon onMouseEnter={handleMenuHover} onMouseLeave={handleMenuHoverLeave }>
             <MenuList handleMenuClick={handleMenuClick} isMenuOpen={isMenuOpen}/>
         </MenuIcon>
     );

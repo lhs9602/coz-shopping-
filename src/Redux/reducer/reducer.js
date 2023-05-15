@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchDataFromAPI } from '../fetchDataFromAPI/fetchDataFromAPI.js';
+import { updateBookmarkInLocalStorage, removeBookmarkFromLocalStorage } from 'Redux/localStorage/localStorage.js';
 
 
 const productSlice = createSlice({
@@ -9,14 +10,26 @@ const productSlice = createSlice({
     loading: false,
     error: null
   },
-  reducers: {
-    bookMarkIn: (state) => {
-      state.data.bookmark = true;
-    },
-    bookMarkOut: (state) => {
-      state.data.bookmark = false;
-    }
+  reducers:  {
+    bookMarkIn: (state, action) => {
+    const id  = action.payload;
+    state.data.forEach(item => {
+      if (item.id === id) {
+        item.bookmark = true;
+        updateBookmarkInLocalStorage(id); // Local Storage에 해당 id 저장
+      }
+    });
   },
+  bookMarkOut: (state, action) => {
+    const id  = action.payload;
+    state.data.forEach(item => {
+      if (item.id === id) {
+        item.bookmark = false;
+        removeBookmarkFromLocalStorage(id); // Local Storage에서 해당 id 삭제
+      }
+    });
+  }
+},
   extraReducers: builder => {
     builder
       .addCase(fetchDataFromAPI.pending, state => {

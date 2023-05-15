@@ -55,7 +55,7 @@ margin-right: 15px;
 
 export function MenuList({ handleMenuClick, isMenuOpen }) {
   return (
-    <DropdownMenu isMenuOpen={isMenuOpen}>
+    <DropdownMenu>
         <User>OOO님, 안녕하세요!</User>
         <Divider /> 
           <MenuItem onClick={() => handleMenuClick('/products/list')}><MenuIcon src={productIcon}/>상품리스트 페이지</MenuItem>

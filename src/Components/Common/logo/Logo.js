@@ -15,6 +15,7 @@ left: 5.94%;
 right: 89.77%;
 top: 31.25%;
 bottom: 31.25%;
+cursor: pointer;
 `;   
 
 export default function Logo(){

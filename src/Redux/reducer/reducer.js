@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchDataFromAPI } from '@/redux/fetchDataFromAPI';
+import { fetchDataFromAPI } from '../fetchDataFromAPI/fetchDataFromAPI.js';
 
 
 const productSlice = createSlice({
@@ -35,4 +35,4 @@ const productSlice = createSlice({
 });
 
 export const { bookMarkOut, bookMarkIn } = productSlice.actions;
-export default productSlice.reducer;
+export default productSlice.reducer; 

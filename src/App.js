@@ -5,8 +5,8 @@ import Header from './Components/Header/Header.js';
 import Footer from './Components/Footer/Footer.js';
 import { fetchData } from 'Api/callApi';
 import Main from './Pages/main/Main.js';
-import ProductList from './Pages/product/Product.js';
-import Bookmark from './Pages/bookmark/Bookmark.js';
+import ProductListpage from './Pages/productpage/Productpage.js';
+import Bookmarkpage from './Pages/bookmarkpage/Bookmarkpage.js';
 import Loading from './Components/Loading/Loading.js';
 
 function App() {
@@ -26,8 +26,8 @@ function App() {
       ) : data.length > 0 ? (
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/products/list" element={<ProductList />} />
-          <Route path="/bookmark" element={<Bookmark />} />
+          <Route path="/products/list" element={<ProductListpage />} />
+          <Route path="/bookmark" element={<Bookmarkpage />} />
         </Routes>
       ) : null}
       <Footer />

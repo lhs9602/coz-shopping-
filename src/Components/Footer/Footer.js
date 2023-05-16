@@ -6,7 +6,7 @@ box-sizing: border-box;
 
 position: relative;
 width: 100%;
-height: 90px;
+height: 80px;
 display: flex;
 flex-direction: column;
 align-items: center;

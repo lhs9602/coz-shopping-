@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-const useRandomItems = () => {
+const MainpageItems = () => {
   const data = useSelector(state => state.data);
 
   // type값이 각각 Product, Category, Brand, Exhibition인 요소를 1개씩만 선택합니다.
@@ -19,4 +19,4 @@ const useRandomItems = () => {
   };
 };
 
-export default useRandomItems;
+export default MainpageItems;

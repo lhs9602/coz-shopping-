@@ -4,11 +4,17 @@ import { updateBookmarksInLocalStorage } from 'Redux/localStorage/localStorage.j
 
 export const fetchDataFromAPI = createAsyncThunk(
   'product/fetchData',
-  async () => {
-    const response = await axios.get('http://cozshopping.codestates-seb.link/api/v1/products');
-    const data = response.data;
-    const modifiedData = data.map(item => ({ ...item, bookmark: true }));
-    updateBookmarksInLocalStorage(modifiedData); // Local Storage 업데이트
-    return modifiedData;
+  () => {
+    return axios
+      .get('http://cozshopping.codestates-seb.link/api/v1/products')
+      .then(response => {
+        const data = response.data;
+        const modifiedData = data.map(item => ({ ...item, bookmark: false }));
+        updateBookmarksInLocalStorage(modifiedData); // Local Storage 업데이트
+        return modifiedData;
+      })
+      .catch(error => {
+        throw error;
+      });
   }
 );

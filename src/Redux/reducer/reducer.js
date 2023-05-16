@@ -22,6 +22,7 @@ const productSlice = createSlice({
   },
   bookMarkOut: (state, action) => {
     const id  = action.payload;
+
     state.data.forEach(item => {
       if (item.id === id) {
         item.bookmark = false;

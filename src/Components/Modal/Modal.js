@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import BookmarkimgOff from "Components/ItemList/Items/북마크 아이콘 - off.png";
-import BookmarkimgOn from "Components/ItemList/Items/북마크 아이콘 - on.png";
-import {useDispatch} from "react-redux";
-import {bookMarkOut, bookMarkIn} from "Redux/reducer/reducer.js";
+import ModalBookmark from "Components/Common/Bookmark/ModalBookmark.js";
 
 
 const ModalOverlay = styled.div `
@@ -62,13 +59,6 @@ display: flex;
   margin: 10px;
 `;
 
-const BookmarkIcon = styled.img `
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-  cursor: pointer;
-`;
-
 const Name = styled.div `
 color: white;
 font-family: Inter;
@@ -80,30 +70,15 @@ text-align: left;
 
 `;
 
-const Modal = ({image, name, onClose,id, bookmark}) => {
-    const dispatch = useDispatch();
-
-    const handleBookmark = () => {
-        if (bookmark === true) {
-            dispatch(bookMarkOut(id));
-        } else if (bookmark === false) {
-            dispatch(bookMarkIn(id));
-        }
-    };
+const Modal = ({image, name, onClose,id, bookmark,SetBookmark}) => {
+  
     return (
         <ModalOverlay onClick={onClose}>
             <ModalContent onClick={(e) => e.stopPropagation()}>
                 <ModalImage src={image} alt={name}/>
                 <InfoWrapper>
-                    {
-                        bookmark
-                            ? (
-                                <BookmarkIcon src={BookmarkimgOn} onClick={handleBookmark} alt="BookmarkON"/>
-                            )
-                            : (
-                                <BookmarkIcon src={BookmarkimgOff} onClick={handleBookmark} alt="BookmarkOff"/>
-                            )
-                    }
+                <ModalBookmark bookmark={bookmark} SetBookmark={SetBookmark} id={id} modal={true}/>
+
                     <Name>{name}</Name>
                 </InfoWrapper>
                 <CloseButton onClick={onClose}>x</CloseButton>

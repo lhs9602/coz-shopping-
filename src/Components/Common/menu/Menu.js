@@ -9,8 +9,9 @@ background-image:url(${Icon});;
 position: absolute;
 height: 24px;
 width: 30px;
-
-left: 80.77%;
+display: flex;
+justify-content:end;
+left: 91.5%;
 right: 5.94%;
 top: 31.25%;
 bottom: 31.25%;

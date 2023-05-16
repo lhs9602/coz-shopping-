@@ -6,10 +6,11 @@ box-sizing: border-box;
 
 position: relative;
 width: 100%;
-height: 58px;
+height: 90px;
 display: flex;
 flex-direction: column;
 align-items: center;
+justify-content: center;
 background: #FFFFFF;
 border-top: 1px solid rgba(0, 0, 0, 0.1);
 `;

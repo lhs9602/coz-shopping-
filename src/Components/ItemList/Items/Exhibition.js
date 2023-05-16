@@ -1,10 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components";
-import BookmarkimgOff from "./북마크 아이콘 - off.png";
-import BookmarkimgOn from "./북마크 아이콘 - on.png";
+import Bookmark from "Components/Common/Bookmark/Bookmark.js";
 import Modal from "Components/Modal/Modal.js";
-import {useDispatch} from "react-redux";
-import {bookMarkOut, bookMarkIn} from "Redux/reducer/reducer.js";
 
 const ProductWrapper = styled.div `
   height: 264px;
@@ -28,13 +25,6 @@ const Image = styled.img `
 
 `;
 
-const BookmarkIcon = styled.img `
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  cursor: pointer;
-`;
-
 const TextWrapper = styled.div `
   display: flex;
   justify-content: space-between;
@@ -49,11 +39,13 @@ const Name = styled.div `
 const Intro = styled.div `
   color: #000;
   margin-top: 4px;
+  font-size: 15px;
 `;
 
-export default function Product({items}) {
+export default function Product({items,bookmark}) {
     const [isOpen, setIsOpen] = useState(false);
-    const dispatch = useDispatch();
+    const [CurrentBookmark,SetBookmark]=useState(bookmark);
+
     const handleClick = () => {
         setIsOpen(true);
     };
@@ -62,35 +54,25 @@ export default function Product({items}) {
         setIsOpen(false);
     };
 
-    const handleBookmark = () => {
-        console.log(items.bookmark);
-        if (items.bookmark === true) {
-            dispatch(bookMarkOut(items.id));
-        } else if (items.bookmark === false) {
-            dispatch(bookMarkIn(items.id));
-        }
-    };
-
     return (
         <ProductWrapper >
             <ImageWrapper>
-                <Image src={items.image_url} alt={items.title} onClick={handleClick}/> {
-                    items.bookmark
-                        ? (
-                            <BookmarkIcon src={BookmarkimgOn} onClick={handleBookmark} alt="BookmarkON"/>
-                        )
-                        : (
-                            <BookmarkIcon src={BookmarkimgOff} onClick={handleBookmark} alt="BookmarkOff"/>
-                        )
-                }
+                <Image src={items.image_url} alt={items.title} onClick={handleClick}/>
+                <Bookmark bookmark={CurrentBookmark} SetBookmark={SetBookmark} id={items.id}/>
             </ImageWrapper>
             <TextWrapper>
                 <Name>{items.title}</Name>
             </TextWrapper>
-            <Intro>{items.sub_title}원</Intro>
+            <Intro>{items.sub_title}</Intro>
             {
                 isOpen && (
-                    <Modal image={items.image_url} name={items.title} onClose={handleClose} id={items.id} bookmark={ items.bookmark}/>
+                    <Modal
+                        image={items.image_url}
+                        name={items.title}
+                        onClose={handleClose}
+                        id={items.id}
+                        bookmark={CurrentBookmark} 
+                        SetBookmark={SetBookmark}/>
                 )
             }
         </ProductWrapper>

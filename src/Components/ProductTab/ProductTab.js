@@ -14,7 +14,7 @@ display: flex;
 
 
 
-export default function ProductTab({selectedTab,setselectedTab}) {
+export default function ProductTab({selectedTab,setSelectedTab}) {
     const catagoryValue = [
     {name:"All",content:"전체"}, 
     {name:"Product",content:"상품"},
@@ -25,7 +25,7 @@ export default function ProductTab({selectedTab,setselectedTab}) {
 
 
     const handleTabClick = (name) => {
-        setselectedTab(name);
+        setSelectedTab(name);
 
     };
 

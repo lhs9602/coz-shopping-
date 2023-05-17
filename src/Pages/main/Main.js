@@ -56,6 +56,7 @@ export default function Main() {
     setItems(matchedItems); // 매칭된 요소들을 상태로 설정
     const filtered = data.filter((el) => el.bookmark === true);
     setBookmarkItems(filtered.slice(0, 4));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
     return (

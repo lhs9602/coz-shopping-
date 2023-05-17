@@ -47,6 +47,7 @@ export default function ProductPage() {
 
     // 필터링된 데이터의 처음 20개를 초기 데이터로 설정
     setDisplayedProducts(filteredData.slice(0, 20));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedTab]);
 
   const fetchMoreData = () => {

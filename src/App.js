@@ -5,7 +5,7 @@ import Header from './Components/Header/Header.js';
 import Footer from './Components/Footer/Footer.js';
 import { fetchData } from 'Api/callApi';
 import Main from './Pages/main/Main.js';
-import ProductPage from './Pages/ProductPage/ProductPage.js';
+import ProductPage from 'Pages/ProductPage/ProductPage';
 import BookmarkPage from 'Pages/BookmarkPage/BookmarkPage.js';
 import Loading from './Components/Loading/Loading.js';
 

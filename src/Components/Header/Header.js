@@ -25,6 +25,7 @@ line-height: 88.02%;
 
 display: flex;
 align-items: center;
+white-space: nowrap;
 
 color: #000000;
 position: absolute;

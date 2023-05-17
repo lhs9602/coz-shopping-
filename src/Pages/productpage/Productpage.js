@@ -5,29 +5,28 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import ItemFilter from 'Components/ItemList/itemFilter/ItemFilter';
 import ProductTab from "Components/ProductTab/ProductTab";
 
-const MainContainer = styled.div`
+const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: center;
   padding: 0px;
-  
   gap: 12px;
-  margin: 30px 86px;
+  margin: 70px 86px;
   width: 1300px;
   height: 790px;
+
 `;
 
 const ProductWrapper = styled.div`
   width: 100%;
-  height: 80%;
+  height: 70%;
   margin: 36px 0px;
   display: flex;
   flex-direction: row;
   gap: 70px;
   padding: 0px;
   flex-wrap:wrap;
-
 `;
 
 export default function ProductPage() {
@@ -50,7 +49,7 @@ const products = useSelector((state) => state.data);
   };
 
   return (
-    <MainContainer>
+    <ProductContainer>
       <ProductTab selectedTab={selectedTab} setSelectedTab={setSelectedTab}></ProductTab>
       <ProductWrapper>
         { displayedProducts.map((product) => (
@@ -63,6 +62,6 @@ const products = useSelector((state) => state.data);
         hasMore={displayedProducts.length < 100} 
         loader={<h4>Loading...</h4>}
       />
-    </MainContainer>
+    </ProductContainer>
   );
 }

@@ -14,7 +14,7 @@ display: flex;
 
 
 
-export default function ProductTab() {
+export default function ProductTab({selectedTab,setselectedTab}) {
     const catagoryValue = [
     {name:"All",content:"전체"}, 
     {name:"Product",content:"상품"},
@@ -23,8 +23,9 @@ export default function ProductTab() {
     {name:"Exhibition",content:"브랜드"}
     ];
 
-    const handleTabClick = (value) => {
 
+    const handleTabClick = (name) => {
+        setselectedTab(name);
 
     };
 
@@ -33,8 +34,10 @@ export default function ProductTab() {
             {
                 catagoryValue.map((el,index) => {
                     return (
-                        <ProductTabItem key={index} name={el.name} content={el.content} handleTabClick= {handleTabClick}>
-                          </ProductTabItem>
+                        <ProductTabItem key={index} name={el.name} content={el.content} handleTabClick= {handleTabClick}
+                        selectedTab={selectedTab}
+                        />
+                        
                     )
                 })
             }

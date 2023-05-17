@@ -14,6 +14,7 @@ height: 82px;
 background: #D9D9D9;
 border: 1px solid rgba(0, 0, 0, 0.1);
 cursor: pointer;
+
 `;
 
 const TabImg = styled.img ``;
@@ -29,6 +30,15 @@ font-style: normal;
 font-weight: 400;
 font-size: 16px;
 line-height: 19px;
+&.submenu {
+    cursor: pointer;
+  }
+
+  &.focused {
+    font-weight: 700;
+    color: #412DD4;
+    text-decoration: underline;
+    }
 `
 
 const ImgSelector = (name)=>{
@@ -49,14 +59,16 @@ const ImgSelector = (name)=>{
     }
 }
 
-export default function ProductTabItem({name,content,handleTabClick,}){
+export default function ProductTabItem({name,content,handleTabClick,selectedTab}){
     
     
 
     return(
-        <ProductWrapper onClick={()=>{handleTabClick(name)}}>
+        <ProductWrapper onClick={()=>{handleTabClick(name)}}
+        >
             <TabImg src={ImgSelector(name)}/>
-            <TabContent>{content}</TabContent>
+            <TabContent className={selectedTab !== name ? "submenu" : "focused"} 
+>{content}</TabContent>
         </ProductWrapper>
     )
 }

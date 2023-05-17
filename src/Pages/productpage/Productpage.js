@@ -4,6 +4,7 @@ import styled from "styled-components";
 // import {useEffect, useState} from 'react'
 // import {useSelector} from 'react-redux';
 import ProductTab from "Components/ProductTab/ProductTab";
+import { useState } from "react";
 
 const MainContainer = styled.div `
   display: flex;
@@ -29,10 +30,11 @@ const ProductWrapper = styled.div `
 `;
 
 export default function Productpage(){
+  const [selectedTab,setselectedTab]=useState("All");
 
   return (
 <MainContainer>
-    <ProductTab></ProductTab>
+    <ProductTab selectedTab={selectedTab} setselectedTab={setselectedTab}></ProductTab>
     <ProductWrapper></ProductWrapper>
 </MainContainer>
   );      

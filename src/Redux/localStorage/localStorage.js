@@ -7,7 +7,7 @@ export const updateBookmarksInLocalStorage = (data) => {
       item.bookmark = storedItem.bookmark;
      
     }
-    return item;
+    return {id:item.id,bookmark:item.bookmark};
   });
   localStorage.setItem('bookmarkedData', JSON.stringify(newData));
 };

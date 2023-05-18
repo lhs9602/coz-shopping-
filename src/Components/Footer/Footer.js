@@ -3,9 +3,8 @@ import styled from "styled-components";
 const FooterContainer=styled.div`
 
 box-sizing: border-box;
-bottom: 0;
 width: 100%;
-height: 60px;
+height: 80px;
 display: flex;
 flex-direction: column;
 align-items: center;

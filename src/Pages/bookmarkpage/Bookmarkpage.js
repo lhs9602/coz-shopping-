@@ -13,9 +13,8 @@ const ProductContainer = styled.div`
   justify-content: center;
   padding: 0px;
   gap: 12px;
-  margin: 70px 86px;
-  width: 1300px;
-  min-height: calc(100vh - 70px); /* 화면의 높이에서 헤더의 높이를 제외한 값으로 설정 */
+  margin: 40px 96px 0px 96px;
+  width: 100%;
 `;
 
 const ProductWrapper = styled.div`

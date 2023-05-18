@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from 'react-redux';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import ItemFilter from 'Components/ItemList/itemFilter/ItemFilter';
@@ -13,9 +13,9 @@ const ProductContainer = styled.div`
   justify-content: center;
   padding: 0px;
   gap: 12px;
-  margin: 70px 86px;
+  margin: 40px 96px 0px 96px;
+  
   width: 1300px;
-  min-height: calc(100vh - 70px); /* 화면의 높이에서 헤더의 높이를 제외한 값으로 설정 */
 `;
 
 const ProductWrapper = styled.div`
@@ -34,7 +34,6 @@ export default function ProductPage() {
   const products = useSelector((state) => state.data);
   const [displayedProducts, setDisplayedProducts] = useState([]);
   const [hasMore, setHasMore] = useState(true);
-  const containerRef = useRef(null);
 
   useEffect(() => {
     // 선택된 탭에 맞게 데이터 필터링
@@ -85,7 +84,7 @@ export default function ProductPage() {
 
   return (
     <>
-      <ProductContainer ref={containerRef}>
+      <ProductContainer>
         <ProductTab selectedTab={selectedTab} setSelectedTab={handleTabChange} />
         <ProductWrapper>
           {displayedProducts.map((product) => (

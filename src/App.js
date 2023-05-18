@@ -7,6 +7,7 @@ import Main from './Pages/main/Main.js';
 import ProductPage from 'Pages/ProductPage/ProductPage.js';
 import BookmarkPage from "Pages/BookmarkPage/Bookmarkpage.js";
 import Loading from './Components/Loading/Loading.js';
+import ErrorPage from "Pages/ErrorPage/ErrorPage.js";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/products/list" element={<ProductPage />} />
           <Route path="/bookmark" element={<BookmarkPage />} />
+          <Route component={ErrorPage} />
         </Routes>
       ) : null}
     </BrowserRouter>

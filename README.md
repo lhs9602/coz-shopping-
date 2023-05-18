@@ -26,16 +26,35 @@
 <br />
 
 ### 화면 구성
-|화면 명|
+|메인페이지|
 |:---:|
-|<img src="https://user-images.githubusercontent.com/80824750/208456048-acbf44a8-cd71-4132-b35a-500047adbe1c.gif" width="450"/>|
-|화면에 대한 설명을 입력합니다.|
+![메인페이지_AdobeExpress](https://github.com/lhs9602/fe-sprint-coz-shopping/assets/34961388/751e0375-d363-45dc-91ee-a232c1695e5e)
+|상품데이터 중 랜덤한 4개와 북마크 된 데이터 4개를 화면에 출력.|
 
-
-|화면 명|
+|상품페이지|
 |:---:|
-|<img src="https://user-images.githubusercontent.com/80824750/208456234-fb5fe434-aa65-4d7a-b955-89098d5bbe0b.gif" width="450"/>|
-|화면에 대한 설명을 입력합니다.|
+![상품페이지_AdobeExpress](https://github.com/lhs9602/fe-sprint-coz-shopping/assets/34961388/5835e44f-a019-4a5e-9205-b42ba24c0e85)
+|상품데이터를 종류별로 구분해서 출력.|
+
+|북마크페이지|
+|:---:|
+![북마크페이지_AdobeExpress](https://github.com/lhs9602/fe-sprint-coz-shopping/assets/34961388/dfaacb28-62c4-4359-8a60-b29a1dfb2d28)
+|북마크에 체크한 데이터를 출력|
+
+|무한_스크롤|
+|:---:|
+![무한_스크롤_AdobeExpress](https://github.com/lhs9602/fe-sprint-coz-shopping/assets/34961388/117be8b7-9ee1-46d6-9456-7728966f7a49)
+|내릴때마다 데이터를 20개 씩 추가|
+
+|무한_스크롤|
+|:---:|
+![북마크_and_토스트_AdobeExpress](https://github.com/lhs9602/fe-sprint-coz-shopping/assets/34961388/df85de18-b532-4fb3-9e1f-b20f1143d203)
+|북마크를 체크하는 기능. 클릭시 토스트 메시지 출력|
+
+|모달|
+|:---:|
+![모달_AdobeExpress](https://github.com/lhs9602/fe-sprint-coz-shopping/assets/34961388/d3838a9d-71b5-44e3-bf0e-20bb1e842e34)
+|모달창으로 데이터의 자세히 보여줌. 모달창에서도 북마크 가능|
 
 <br />
 

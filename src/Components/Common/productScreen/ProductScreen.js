@@ -8,13 +8,15 @@ import Loading from 'Components/Loading/Loading.js';
 import {fetchFilteredData } from "func/filterProducts/filterProducts.js";
 
 export default function ProductScreen({ products }) {
+  
   const [selectedTab, setSelectedTab] = useState("All");
   const [displayedProducts, setDisplayedProducts] = useState([]);
   const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
     setDisplayedProducts(fetchFilteredData(products, selectedTab, 0, 20));
-  }, [selectedTab, products]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedTab]);
 
   const fetchMoreData = () => {
     const currentLength = displayedProducts.length;

@@ -3,6 +3,7 @@ import ItemFilter from 'Components/ItemList/itemFilter/ItemFilter';
 import generateRandomNum from 'Hooks/generaterandomNum/generateRandomNum';
 import {useEffect, useState} from 'react'
 import {useSelector} from 'react-redux';
+import Footer from 'Components/Footer/Footer.js';
 
 const MainContainer = styled.div `
   display: flex;
@@ -60,6 +61,7 @@ export default function Main() {
   }, []);
 
     return (
+      <>
         <MainContainer>
             <ProductText>상품 리스트</ProductText>
             <ProductWrapper>
@@ -78,5 +80,7 @@ export default function Main() {
                 }
                 </ProductWrapper>
         </MainContainer>
+        <Footer/>
+        </>
     );
 }

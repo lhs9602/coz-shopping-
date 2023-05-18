@@ -1,10 +1,17 @@
 import React from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
 
-const Loading = () => {
+const Loading= () => {
   return (
-    <div className="loading-page">
-      <div className="loading-spinner"></div>
-      <p className="loading-text">로딩 중...</p>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      background: '#f1f1f1',
+      fontFamily: 'Arial, sans-serif',
+    }}>
+      <CircularProgress />
     </div>
   );
 };

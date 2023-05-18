@@ -4,7 +4,7 @@ import ProductTabItem  from "Components/Common/ProductTabItem/ProductTabItem";
 
 const ProductTabContainer = styled.div `
 display: flex;
-position: relative;
+position: initial;
   align-items: center;
   justify-content:center;
   padding: 0px;

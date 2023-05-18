@@ -4,6 +4,7 @@ import ProductTabItem  from "Components/Common/ProductTabItem/ProductTabItem";
 
 const ProductTabContainer = styled.div `
 display: flex;
+position: initial;
   align-items: center;
   justify-content:center;
   padding: 0px;
@@ -25,7 +26,9 @@ export default function ProductTab({selectedTab,setSelectedTab}) {
 
 
     const handleTabClick = (name) => {
+        if(selectedTab!==name){
         setSelectedTab(name);
+        }
 
     };
 

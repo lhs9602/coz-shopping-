@@ -1,54 +1,10 @@
 import React, {useState} from "react";
-import styled from "styled-components";
 import Modal from "Components/Modal/Modal.js";
 import Bookmark from "Components/Common/Bookmark/Bookmark.js";
+import {ProductWrapper,ImageWrapper,Image,TextWrapper,Name,Customer,Follow} from "./ItemStyles.css";
 
-const ProductWrapper = styled.div `
-  height: 264px;
-  width: 264px;
-  font-size: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
 
-const ImageWrapper = styled.div `
-  position: relative;
-  height: 210px;
-  width: 100%;
-`;
-
-const Image = styled.img `
-  height: 100%;
-  width: 100%;
-  background-color: gray;
-`;
-
-const TextWrapper = styled.div `
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-`;
-
-const Name = styled.div `
-  color: #000;
-  font-weight: bold;
-`;
-
-const Customer = styled.div `
-  color: #452cdd;
-  font-weight: bold;
-  align-self: flex-end;
-`;
-
-const Follow = styled.div `
-  color: #000;
-  font-weight: bold;
-  margin-top: 4px;
-  align-self: flex-end;
-`;
-
-export default function Product({items,bookmark}) {
+export default function Brand({items,bookmark}) {
     const [isOpen, setIsOpen] = useState(false);
     const [CurrentBookmark,SetBookmark]=useState(bookmark);
 

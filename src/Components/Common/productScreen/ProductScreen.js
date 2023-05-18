@@ -8,6 +8,7 @@ import Loading from 'Components/Loading/Loading.js';
 import {fetchFilteredData } from "func/filterProducts/filterProducts.js";
 
 export default function ProductScreen({ products }) {
+  
   const [selectedTab, setSelectedTab] = useState("All");
   const [displayedProducts, setDisplayedProducts] = useState([]);
   const [hasMore, setHasMore] = useState(true);

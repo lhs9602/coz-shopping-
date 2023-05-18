@@ -28,7 +28,6 @@ export const updateBookmarkInLocalStorage = (id) => {
     return item;
   });
   localStorage.setItem('bookmarkedData', JSON.stringify(updatedData));
-  console.log("updateBookmarkInLocalStorage:",updatedData);
 };
 
 // Local Storage에서 북마크 제거
@@ -42,6 +41,5 @@ export const removeBookmarkFromLocalStorage = (id) => {
     return item;
   });
   localStorage.setItem('bookmarkedData', JSON.stringify(updatedData));
-  console.log("removeBookmarkFromLocalStorage:",updatedData);
 
 };

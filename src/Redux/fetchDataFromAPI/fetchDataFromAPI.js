@@ -9,6 +9,7 @@ export const fetchDataFromAPI = createAsyncThunk(
       .get('http://cozshopping.codestates-seb.link/api/v1/products')
       .then(response => {
         const data = response.data.sort((a, b) => a.id - b.id);
+        console.log(data);
         const modifiedData = data.map(item => ({ ...item, bookmark: false }));
         updateBookmarksInLocalStorage(modifiedData); // Local Storage 업데이트
         return modifiedData;

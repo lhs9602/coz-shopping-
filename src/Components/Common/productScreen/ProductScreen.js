@@ -12,6 +12,20 @@ export default function ProductScreen({ products }) {
   const [selectedTab, setSelectedTab] = useState("All");
   const [displayedProducts, setDisplayedProducts] = useState([]);
   const [hasMore, setHasMore] = useState(true);
+  const [dataLength,setDataLength ]=useState();
+
+  useEffect(() => {
+    if (selectedTab !== "All") {
+      setDataLength(products.filter((el) => el.type === selectedTab).length);
+    } else {
+      setDataLength(products.length);
+    }
+    
+    if (dataLength<=20){
+      setHasMore(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedTab]);
 
   useEffect(() => {
     setDisplayedProducts(fetchFilteredData(products, selectedTab, 0, 20));
@@ -24,7 +38,10 @@ export default function ProductScreen({ products }) {
 
     setDisplayedProducts((prevData) => [...prevData, ...newData]);
 
-    if (currentLength + 20 >= newData.length) {
+    if (currentLength+20 >= dataLength) {
+      setHasMore(false);
+    }
+    else if (dataLength<=20){
       setHasMore(false);
     }
   };

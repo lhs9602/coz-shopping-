@@ -21,7 +21,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header />
+      <Header/>
       {isLoading ? (
         <Loading />
       ) : data.length > 0 ? (

@@ -10,6 +10,10 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^29.5.1",
+    "@types/node": "^20.2.4",
+    "@types/react": "^18.2.7",
+    "@types/react-dom": "^18.2.4",
     "axios": "^1.4.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
@@ -25,6 +29,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "chromatic": "npx chromatic --project-token=chpt_c2c6a7626f21ba4",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -71,9 +76,11 @@
     "@storybook/react-webpack5": "^7.0.17",
     "@storybook/testing-library": "^0.0.14-next.2",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "chromatic": "^6.17.4",
     "eslint-plugin-storybook": "^0.6.12",
     "prop-types": "^15.8.1",
     "storybook": "^7.0.17",
+    "typescript": "^5.0.4",
     "webpack": "^5.84.0"
   }
 }
